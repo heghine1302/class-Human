@@ -16,14 +16,12 @@ public:
 		sex = "F";
 		age = 19;
 	}
-
 	Human(string name, string sex, int age)
 	{
 		this->name = name;
 		this->sex = sex;
 		this->age = age;
 	}
-
 	void HumanPrint() 
 	{
 		cout << "Name ---- " << name << "\nSex ---- " << sex << "\nAge ---- " << age << endl<<endl;
@@ -44,37 +42,31 @@ public:
 		system("pause");
 	}
 };
-
 class Student : virtual public Human
 {
 private:
 	int group;
 	int ID;
-
 public:
 	Student(){
 		cout << "Constructor of Student" << endl;
 		group = 807;
 		ID = 1302;
 	}
-
 	Student(const int&_group, const int&_ID) : Human(name, sex, age)
 	{
 		this->group = group;
 		this->ID = ID;
 	}
-
 	void Learn() 
 	{
 		cout << "I'm a student" << endl;
 	}
-
 	void HumanPrint() 
 	{
 		cout << "Group ---- " << group << "\nID ---- " << ID << endl;
 		Human::HumanPrint();
 	}
-
 	void cinHuman() 
 	{
 		cout << "Group --> ";
@@ -84,41 +76,34 @@ public:
 
 		Human::cinHuman();
 	}
-
 	virtual ~Student() {
 		cout << "Destructor of Student" << endl;
 		system("pause");
 	}
-
 	void doSmth() {
 		Human*p = new Student;
 		delete p;
 	}
 };
-
 class Professor : virtual public Human
 {
 private:
 	string subject;
-
 public:
 	Professor()
 	{
 		cout << "Constructor of Professor" << endl;
 		subject = "Math";
 	}
-
 	Professor(const string&_subject) : Human(name, sex, age)
 	{
 		this->subject = subject;
 	}
-	
 	void HumanPrint()
 	{
 		cout << "Subject ---- " << subject<<endl;
 		Human::HumanPrint();
 	}
-
 	void cinHuman() {
 		cout << "Subject --> ";
 		cin >> subject;
@@ -129,16 +114,13 @@ public:
 		cout << "Destructor of Professor" << endl;
 		system("pause");
 	}
-
 	void doSmth() {
 		Human* p = new Professor;
 		delete p;
 	}
-
 };
 
 int main() {
-
 	Student s;
 	s.doSmth();
 	s.Learn();
