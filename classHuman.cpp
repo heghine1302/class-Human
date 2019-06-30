@@ -22,11 +22,11 @@ public:
 		this->sex = sex;
 		this->age = age;
 	}
-	void HumanPrint() 
+	void HumanPrint()
 	{
-		cout << "Name ---- " << name << "\nSex ---- " << sex << "\nAge ---- " << age << endl<<endl;
+		cout << "Name ---- " << name << "\nSex ---- " << sex << "\nAge ---- " << age << endl << endl;
 	}
-	void cinHuman() 
+	void cinHuman()
 	{
 		cout << "Name --> ";
 		cin >> name;
@@ -39,7 +39,7 @@ public:
 	}
 	virtual ~Human() {
 		cout << "Destructor of Human" << endl;
-		system("pause");
+		//system("pause");
 	}
 };
 class Student : virtual public Human
@@ -48,26 +48,26 @@ private:
 	int group;
 	int ID;
 public:
-	Student(){
+	Student() {
 		cout << "Constructor of Student" << endl;
 		group = 807;
 		ID = 1302;
 	}
-	Student(const int&_group, const int&_ID) : Human(name, sex, age)
+	Student(const string name, const string sex, const int age, const int group, const int ID) : Human(name, sex, age)
 	{
 		this->group = group;
 		this->ID = ID;
 	}
-	void Learn() 
+	void Learn()
 	{
 		cout << "I'm a student" << endl;
 	}
-	void HumanPrint() 
+	void HumanPrint()
 	{
 		cout << "Group ---- " << group << "\nID ---- " << ID << endl;
 		Human::HumanPrint();
 	}
-	void cinHuman() 
+	void cinHuman()
 	{
 		cout << "Group --> ";
 		cin >> group;
@@ -78,7 +78,7 @@ public:
 	}
 	virtual ~Student() {
 		cout << "Destructor of Student" << endl;
-		system("pause");
+		//system("pause");
 	}
 	void doSmth() {
 		Human*p = new Student;
@@ -95,13 +95,13 @@ public:
 		cout << "Constructor of Professor" << endl;
 		subject = "Math";
 	}
-	Professor(const string&_subject) : Human(name, sex, age)
+	Professor(const string name, const string sex, const int age, const string subject) : Human(name, sex, age)
 	{
 		this->subject = subject;
 	}
 	void HumanPrint()
 	{
-		cout << "Subject ---- " << subject<<endl;
+		cout << "Subject ---- " << subject << endl;
 		Human::HumanPrint();
 	}
 	void cinHuman() {
@@ -112,7 +112,7 @@ public:
 	}
 	virtual ~Professor() {
 		cout << "Destructor of Professor" << endl;
-		system("pause");
+		//system("pause");
 	}
 	void doSmth() {
 		Human* p = new Professor;
@@ -121,21 +121,27 @@ public:
 };
 
 int main() {
+	Student m("Vormizdukht", "f", 14, 109, 1111);
+	m.HumanPrint();
+
 	Student s;
-	s.doSmth();
+	//s.doSmth();
 	s.Learn();
 	s.cinHuman();
 	s.HumanPrint();
+	
+	Professor t("Lernik", "m", 92, "Analitik");
+	t.HumanPrint();
 
 	Professor p;
-	p.doSmth();
+	//p.doSmth();
 	p.cinHuman();
 	p.HumanPrint();
 
 	Human h;
 	h.cinHuman();
 	h.HumanPrint();
-	
+
 	system("pause");
 	return 0;
 }
